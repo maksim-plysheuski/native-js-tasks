@@ -44,7 +44,9 @@ const promise3 = new Promise((resolve, reject) => {
 // и возвращает строку 'Promise Data'
 // Получите данные промиса и выведите их в консоль
 
-
+const promise4 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve('Promise Data'), 3000)
+}).then((data) => console.log(data))
 
 
 // Task 05
