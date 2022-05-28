@@ -32,12 +32,19 @@ console.log(promise2)
 // и возвращает строку 'Promise Error'
 // Получите данные промиса и выведите их в консоль
 
+const promise3 = new Promise((resolve, reject) => {
+    reject("Promise Data")
+}).catch((error) => console.log(error))
+
+
 
 // Task 04
 // Создайте промис, который переходит в состояние resolved через 3с.
 // (Используйте setTimeout)
 // и возвращает строку 'Promise Data'
 // Получите данные промиса и выведите их в консоль
+
+
 
 
 // Task 05
