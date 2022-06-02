@@ -1,5 +1,3 @@
-
-
 console.log('lesson 4');
 
 // http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D
@@ -94,11 +92,10 @@ export function rejectPromise() {
 // Создайте функцию print, которая выводит в консоль значение своего параметра
 // Добавьте два метода then и передайте созданные функции.
 
-const onSuccess = (arg: any) => `${arg} Maksim`
+const onSuccess = (arg: any) => console.log(`${arg} Maksim`)
 const print = (a: any) => console.log(a)
 
-const promise5 = new Promise((resolve, reject) => resolve("My name is"))
-    .then((data) => setTimeout(() => console.log(data), 5000))
+const promise5 = new Promise((resolve, reject) => setTimeout(() => resolve("My name is"), 1000))
     .then((data) => onSuccess(data))
     .then((data) => print(data))
 
@@ -110,6 +107,19 @@ const promise5 = new Promise((resolve, reject) => resolve("My name is"))
 // второй промис возвращает объект {age: 16} через 3 с, а третий {city: ''} через 4с.
 // Получите результаты работы промисов, объедините свойства объектов
 // и выведите в консоль {name, age, city}
+
+const promise6 = new Promise(function(resolve, reject) {
+    setTimeout(() => resolve({ name: "Anna" }), 2000);
+});
+const promise7 = new Promise(function(resolve, reject) {
+    setTimeout(() => resolve({age: 16}), 3000);
+});
+const promise8 = new Promise(function(resolve, reject) {
+    setTimeout(() => resolve({city: ''}), 4000);
+});
+
+const allPromises = [promise6, promise7, promise8]
+Promise.all(allPromises).then((data) => console.log(Object.assign(data[0], data[1], data[2])))
 
 
 
