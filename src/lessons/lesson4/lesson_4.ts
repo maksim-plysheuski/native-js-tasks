@@ -1,4 +1,4 @@
-import {log} from "util";
+
 
 console.log('lesson 4');
 
@@ -57,10 +57,34 @@ const promise4 = new Promise((resolve, reject) => {
 // в консоль сообщения: первая - `Promise is resolved with data: ${paramName}`
 // вторая - `Promise is rejected with error: ${paramName}`
 // Создайте три обработчика события click для кнопок "Create Promise", "Resolve Promise", "Reject Promise".
+
+
 // Первый обработчик, создает промис, заполняет первые три свойства,
-// описаного выше объекта: свойство promise получает новый созданный промис,
-// свойства resolve и reject получают ссылки на соответствующие функции
+// handlePromise: свойство promise получает новый созданный промис,
+
+// свойства resolve и reject получают ссылки на соответствующие функции (?????)
 // resolve и reject. Следующие два обработчика запускают методы resolve и reject.
+
+const handlePromise: any = {
+    promise: null,
+    resolve: null,
+    reject: null,
+    onSuccess: (message: string) => console.log(`Promise is resolved with data: ${message}`),
+    onError: (message: string) => console.log(`Promise is resolved with data: ${message}`)
+}
+
+export function createPromise() {
+    let promise = new Promise((resolve, reject) => {})
+    handlePromise.promise = promise
+
+}
+
+export function resolvePromise() {
+
+}
+export function rejectPromise() {
+
+}
 
 
 // Task 06
@@ -69,6 +93,16 @@ const promise4 = new Promise((resolve, reject) => {
 // прибавляет к нему Ваше имя и возвращает новую строку из функции
 // Создайте функцию print, которая выводит в консоль значение своего параметра
 // Добавьте два метода then и передайте созданные функции.
+
+const onSuccess = (arg: any) => `${arg} Maksim`
+const print = (a: any) => console.log(a)
+
+const promise5 = new Promise((resolve, reject) => resolve("My name is"))
+    .then((data) => setTimeout(() => console.log(data), 5000))
+    .then((data) => onSuccess(data))
+    .then((data) => print(data))
+
+
 
 
 // Task 7
