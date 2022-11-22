@@ -10,17 +10,6 @@ import { useDispatch, useSelector} from "react-redux";
 import {IGlobalState} from "../../redux/state";
 
 const CurrencyEContainer = () => {
-    /*const {
-        currencies,
-        currentCurrency,
-        isBuying,
-        amountOfBYN,
-        amountOfCurrency,
-        setCurrencyAmount,
-        setAction,
-        changeCurrency,
-    } = props;*/
-
 
     const currencies = useSelector<IGlobalState, Array<CurrencyType>>(state => state.currency.currencies)
     const currentCurrency = useSelector<IGlobalState, string>(state => state.currency.currentCurrency)
@@ -93,40 +82,6 @@ const CurrencyEContainer = () => {
         </React.Fragment>
     );
 };
-
-/*const mapStateToProps = ( { currency } : {currency: CurrencyState} ): CurrencyState => {
-    return {
-        currencies: currency.currencies,
-        currentCurrency: currency.currentCurrency,
-        isBuying: currency.isBuying,
-        amountOfBYN: currency.amountOfBYN,
-        amountOfCurrency: currency.amountOfCurrency,
-    };
-};
-
-
-const mapDispatchToProps = (dispatch: Dispatch<CurrencyReducersTypes>) : any => {
-    return {
-        setCurrencyAmount(amountOfBYN: string, amountOfCurrency: string) {
-            dispatch(ChangeCurrencyFieldAC(amountOfBYN, amountOfCurrency));
-        },
-        setAction(isBuying: boolean) {
-            dispatch(ChangeActionAC(isBuying));
-        },
-        changeCurrency(currency: string) {
-            dispatch(СhangeCurrentCurrencyAC(currency));
-        },
-    };
-};
-
-
-const connector = connect(mapStateToProps, mapDispatchToProps);
-
-type TProps = ConnectedProps<typeof connector>;
-
-export default connector(CurrencyEContainer);*/
-
-
 
 export default CurrencyEContainer;
 
