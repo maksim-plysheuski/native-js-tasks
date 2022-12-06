@@ -1,4 +1,4 @@
-console.log('lesson 2');
+console.log("lesson 2");
 
 // Lexical environment
 // http://jsflow.org/docs/lex-env/
@@ -24,9 +24,9 @@ console.log('lesson 2');
 // Task 01
 // Реализовать функцию sum которая суммирует 2 числа следующим образом sum(3)(6) === 9
 
-function sum(a: number) {
-    return function (b: number) {
-        return a+b
+function sum(a) {
+    return function (b) {
+        return a + b
     }
 }
 
@@ -59,7 +59,6 @@ console.log(counter2())
 console.log(counter())
 
 
-
 // Task 03
 // Переписать функцию из Task 02 так, что бы она принимала число в качестве аргумента и это число было стартовым значением счетчика
 // и возвращала следующий объект методов:
@@ -69,7 +68,7 @@ console.log(counter())
 // set: установить счетчик в заданное значение;
 
 
-function makeCounts(startValue: number) {
+function makeCounts(startValue) {
     let a = startValue;
 
     return {
@@ -77,17 +76,16 @@ function makeCounts(startValue: number) {
             a += 1
         },
         decrease() {
-            a =- 1
+            a = -1
         },
         reset() {
             a = 0
         },
-        set(newValue: number) {
+        set(newValue) {
             a = newValue
         }
     }
 }
-
 
 
 // Task 04*
@@ -105,27 +103,34 @@ function makeCounts(startValue: number) {
 // Task 05
 // решить все задачи по рекурсии которые даны в конце статьи https://learn.javascript.ru/recursion
 
-function sumTo(n: number) {
+function sumTo(n) {
     if (n === 1) {
         return n
     }
     return n + sumTo(n - 1)
 }
 
-console.log(sumTo(100))
-
-
-function factorial(n: number) {
+function factorial(n) {
     if (n === 1) {
         return n
     }
     return n * factorial(n - 1)
 }
 
-console.log(factorial(5))
+function fibonacci(n) {
+    if (n <= 1) {
+        return n
+    }
+    return fibonacci(n - 1) + fibonacci(n - 2)
+}
+
+console.log(fibonacci(5))
+
 
 // Task 06
 // написать функцию, которая повторяет функционал метода flat массива на всю глубину.
 
+
 // just a plug
-export default () => {};
+export default () => {
+};
