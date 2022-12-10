@@ -130,6 +130,22 @@ console.log(fibonacci(5))
 // Task 06
 // написать функцию, которая повторяет функционал метода flat массива на всю глубину.
 
+function flat(array) {
+    let newArray = []
+
+    function supportFunction(array) {
+        for (let i = 0; i < array.length; i++) {
+            let element = array[i]
+            if (Array.isArray(element)) {
+                supportFunction(element)
+            } else {
+                newArray.push(element)
+            }
+        }
+    }
+    supportFunction(array)
+    return newArray
+}
 
 // just a plug
 export default () => {
