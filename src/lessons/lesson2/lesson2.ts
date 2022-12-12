@@ -105,6 +105,15 @@ function makeCounts(startValue: number) {
 // Task 05
 // решить все задачи по рекурсии которые даны в конце статьи https://learn.javascript.ru/recursion
 
+function sumTo(n: number) {
+    if (n === 1) {
+        return n
+    }
+    return n + sumTo(n - 1)
+}
+
+console.log(sumTo(100))
+
 // Task 06
 // написать функцию, которая повторяет функционал метода flat массива на всю глубину.
 
