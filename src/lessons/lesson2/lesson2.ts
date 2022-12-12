@@ -114,6 +114,16 @@ function sumTo(n: number) {
 
 console.log(sumTo(100))
 
+
+function factorial(n: number) {
+    if (n === 1) {
+        return n
+    }
+    return n * factorial(n - 1)
+}
+
+console.log(factorial(5))
+
 // Task 06
 // написать функцию, которая повторяет функционал метода flat массива на всю глубину.
 
