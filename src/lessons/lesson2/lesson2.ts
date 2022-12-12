@@ -41,13 +41,22 @@ console.log(sum(3)(6))
 // counter2(); // 1
 // counter(); // 3
 
-let one = 0;
-let two = 0;
-
 function makeCounter() {
+    let a = 1;
 
+    return function () {
+        return a++
+    }
 }
 
+const counter = makeCounter()
+
+console.log(counter())
+console.log(counter())
+
+const counter2 = makeCounter()
+console.log(counter2())
+console.log(counter())
 
 
 
@@ -58,6 +67,28 @@ function makeCounter() {
 // decrease: -1
 // reset: установить счетчик в 0;
 // set: установить счетчик в заданное значение;
+
+
+function makeCounts(startValue: number) {
+    let a = startValue;
+
+    return {
+        increase() {
+            a += 1
+        },
+        decrease() {
+            a =- 1
+        },
+        reset() {
+            a = 0
+        },
+        set(newValue: number) {
+            a = newValue
+        }
+    }
+}
+
+
 
 // Task 04*
 // Реализовать функцию superSum которая принимает число в качестве аргумента, которое указывает на количество слагаемых
