@@ -24,6 +24,8 @@ const promise2 = new Promise((resolve, reject) => {
     resolve("Promise Data")
 }).then((data) => console.log(data))
 
+console.log(promise2)
+
 
 // Task 03
 // Создайте промис, который после создания сразу же переходит в состояние rejected
