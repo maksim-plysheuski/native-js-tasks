@@ -20,7 +20,9 @@ const promise = new Promise((resolve, reject) => {
 // и возвращает строку 'Promise Data'
 // Получите данные промиса и выведите их в консоль
 
-
+const promise2 = new Promise((resolve, reject) => {
+    resolve("Promise Data")
+}).then((data) => console.log(data))
 
 
 // Task 03
