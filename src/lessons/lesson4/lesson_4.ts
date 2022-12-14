@@ -54,33 +54,42 @@ const promise4 = new Promise((resolve, reject) => {
 // а последние два функциями, которые принимают один параметр и выводят
 // в консоль сообщения: первая - `Promise is resolved with data: ${paramName}`
 // вторая - `Promise is rejected with error: ${paramName}`
+
 // Создайте три обработчика события click для кнопок "Create Promise", "Resolve Promise", "Reject Promise".
 
-
-// Первый обработчик, создает промис, заполняет первые три свойства,
+// Первый обработчик, создает промис, заполняет первые три свойства объекта
 // handlePromise: свойство promise получает новый созданный промис,
-
 // свойства resolve и reject получают ссылки на соответствующие функции (?????)
-// resolve и reject. Следующие два обработчика запускают методы resolve и reject.
+// resolve и reject.
+//
+// Следующие два обработчика запускают методы resolve и reject.
 
 const handlePromise: any = {
     promise: null,
     resolve: null,
     reject: null,
-    onSuccess: (message: string) => console.log(`Promise is resolved with data: ${message}`),
-    onError: (message: string) => console.log(`Promise is resolved with data: ${message}`)
+    onSuccess: (message: any) => console.log(`Promise is resolved with data: ${message}`),
+    onError: (message: any) => console.log(`Promise is resolved with data: ${message}`)
 }
 
 export function createPromise() {
-    let promise = new Promise((resolve, reject) => {})
-    handlePromise.promise = promise
+    handlePromise.promise = new Promise((resolve, reject) => {
+        handlePromise.resolve = resolve;
+        handlePromise.reject = reject;
+    });
+    //handlePromise.promise = promise;
+    console.log('Promise created');
 
 }
 
 export function resolvePromise() {
+    handlePromise.resolve('RESOLVED');
+    handlePromise.promise.then((data: any) => handlePromise.onSuccess(data));
 
 }
 export function rejectPromise() {
+    handlePromise.reject('REJECTED');
+    handlePromise.promise.catch((data: any) => handlePromise.onError(data));
 
 }
 
